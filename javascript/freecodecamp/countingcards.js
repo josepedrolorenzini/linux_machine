@@ -9,7 +9,7 @@ function cc(card) {
         case 4:
         case 5:
         case 6:
-           count =  count + 1;
+           count =    count + 1;
            result =   count + ' Bet';
            break;
         case 7:
