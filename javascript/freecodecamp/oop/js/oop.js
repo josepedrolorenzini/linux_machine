@@ -51,7 +51,7 @@ class TodoList {
         //label.innerText  = text; /// check the issue with this.addItemInput
         label.innerHTML = ` ${description}  
         <button class="remove-item btn-link text-red">
-        <i class="fa-solid fa-xmark" >X</i>
+        <i class="fa-solid fa-xmark" ></i>
         </button>`;
         li.classList.add('todo')
     
@@ -63,6 +63,7 @@ class TodoList {
     }
 
     setCompletedStatus( index, completed=true ){
+
         this.olParent.forEach((e,index) => {
             console.log(index, e.childNodes)
             e.addEventListener('change' , (ui) =>{
@@ -150,6 +151,31 @@ class TodoList {
       // Returns an array of all the tasks whose descriptions
       // include the specified text (substring search)... use .filter() ?
       findMatchingTasks( searchText ){
+        
+        const itemFilter = document.getElementById('filter');
+        const items = this.olParent;
+        itemFilter.addEventListener('input' , (e) => {
+            console.log(e.target , itemFilter.value , items)
+            // if(itemFilter.value)
+        // const items = document.querySelectorAll('.todo');
+        // const text = e.target.value.toLowerCase();
+        // const itemsArray = Array.from(items);
+
+        // items.forEach(item => {
+        //         const itemName = item.firstChild.textContent.toLocaleLowerCase();
+        //         console.log(itemName)
+        //         if(itemName.indexOf(text) != -1){
+        //             // console.log(itemName.indexOf(text));
+        //             item.style.display = 'flex';
+        //             console.log(true)
+        //         }else{
+        //             item.style.display = 'none';
+        //             console.log(false)
+        //         }
+        //     })
+            });
+
+
       }
       
       // ADVANCED BONUS CHALLENGES:
@@ -187,7 +213,8 @@ document.addEventListener('DOMContentLoaded', function() {
     todoList.updateDescription();
 todoList.setCompletedStatus();
 console.log(todoList.removeTask());
-todoList.allCompleted(todoList.textList)
+todoList.allCompleted(todoList.textList);
+todoList.findMatchingTasks()
 });
 
 
