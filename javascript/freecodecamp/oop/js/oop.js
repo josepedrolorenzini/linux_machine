@@ -3,11 +3,12 @@ class TodoList {
     constructor(element){
         this.listElement  = element;
         this.submitTask   = document.querySelector('#submitTask');
-        this.olListas = document.querySelectorAll('#list li');
-        this.olParent = document.querySelectorAll('#list')
+        this.olListas     = document.querySelectorAll('#list li');
+        this.olParent     = document.querySelectorAll('#list')
         this.addItemInput = document.forms[0][0];
         this.textList     = [];
-        this.removeBtn = document.querySelectorAll('.remove-item') ;
+        this.removeBtn    = document.querySelectorAll('.remove-item') ;
+        this.itemFilter   = document.getElementById('filter');
         // this.removeTask = this.removeTask.bind(this);
         // this.removeTask = this.removeTask.bind(this.removeBtn)
       //  this.textList     = this.updateDescription.bind(this.textList)
@@ -155,7 +156,21 @@ class TodoList {
         const itemFilter = document.getElementById('filter');
         const items = this.olParent;
         itemFilter.addEventListener('input' , (e) => {
-            console.log(e.target , itemFilter.value , items)
+            const text = e.target.value.toLowerCase();
+            console.log(e.target , itemFilter.value , text )
+
+            items.forEach(item => {
+                const itemName = item.firstChild.textContent.toLocaleLowerCase();
+                console.log('itemname ' + itemName , itemName.indexOf(text));
+                
+                if(itemName.indexOf(text) != -1){
+                    console.log(itemName.indexOf(text));
+                    console.log(item.firstElementChild)
+                    item.firstElementChild.style.display = 'block';
+                }else{
+                    item.firstElementChild.style.display = 'none';
+                }
+            })
             // if(itemFilter.value)
         // const items = document.querySelectorAll('.todo');
         // const text = e.target.value.toLowerCase();
