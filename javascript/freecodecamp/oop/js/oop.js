@@ -2,7 +2,8 @@ class TodoList {
 
     constructor(element){
         this.listElement  = element;
-        this.submitTask   = document.querySelector('#submitTask')
+        this.submitTask   = document.querySelector('#submitTask');
+        this.olParent = document.querySelectorAll('#list')
         this.addItemInput = document.forms[0][0];
         this.textList     = [];
         // this.textList    = ['javascript' , 'is' , 'not bad'];
@@ -26,7 +27,7 @@ class TodoList {
             this.textList.push(this.addItemInput.value);
 
             document.forms[0][0].value
-            this.listElement.appendChild(TodoList.createListItem(this.addItemInput.value))
+            this.listElement.appendChild(TodoList.createListItem(this.addItemInput.value));
             console.log(this.textList)
             this.addItemInput.value = ""
             
@@ -37,8 +38,17 @@ class TodoList {
 
     //makes an <li>text</li> element tag 
     static createListItem(text){
-        const li =  document.createElement('li');
-        li.textContent = text;
+        const li       =  document.createElement('li');
+        const label    =  document.createElement('label');
+        const input    =  document.createElement('input');
+        input.type     = "checkbox";
+
+        label.innerText  = text; /// check the issue with this.addItemInput
+        li.classList.add('todo')
+    
+        li.appendChild(label)
+        label.prepend(input)
+        // li.textContent = text;
         return li;
 
     }
