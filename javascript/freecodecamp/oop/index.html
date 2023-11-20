@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>classes - javascript</title>
+    <style>
+        body{
+    background-color: rgb(255, 255, 255);
+}
+.completed{
+    color:grey;
+    text-decoration: line-through;
+}
+#container{
+  margin: 0 auto;
+  width: 30%;
+}
+    </style>
+</head>
+<body>
+    
+    <!-- <h2> todo list javascript - classes: HTML list Binding</h2> -->
+    
+    <div id="container">
+            <h1>To-Do , To-Doing , To-Done</h1>
+            <ol id="list">
+                <li class="todo">
+                    <label for=""> 
+                    <input type="checkbox">
+                    make and awesome todo list app
+                    </label>
+                </li>
+                <li class="todo">
+                    <label for=""> 
+                    <input type="checkbox">
+                    connect it to js for maximum featurocity
+                </label>
+            </li>
+            </ol>
+            <form id='submitTask'>
+            <input type="text" name="addIteminput" id="newItemText">
+            <button id="addButton">add item </button>
+            </form>
+            
+            
+        </div>
+        <script src="js/oop.js" defer></script>
+    </body>
+</html>
