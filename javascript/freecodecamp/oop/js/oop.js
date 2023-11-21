@@ -170,7 +170,7 @@ class TodoList {
           if(list.indexOf(searchText.value) != -1){
             console.log(list.indexOf(searchText.value))
                //  name.style.display = 'block';
-                 name.setAttribute('style' , 'display:block;list-style: decimal;')
+                 name.setAttribute('style' , 'display:list-item;')
              }else{
                  name.style.display = 'none'
              }
